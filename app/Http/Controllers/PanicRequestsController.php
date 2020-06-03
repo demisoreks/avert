@@ -77,7 +77,7 @@ class PanicRequestsController extends Controller
         if ($input['status'] == 'Active') {
             $panic_credentials = [
                 'name' => $panic_request_name,
-                'app_link' => '#',
+                'app_link' => 'http://halogengms.com/halogen.apk',
                 'username' => $input['username'],
                 'password' => $input['password']
             ];
