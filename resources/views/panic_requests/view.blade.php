@@ -10,7 +10,7 @@ $client = new Client();
 $res = $client->request('GET', DB::table('acc_config')->whereId(1)->first()->master_url.'/api/getRoles', [
     'query' => [
         'username' => $halo_user->username,
-        'link_id' => DB::table('amd_config')->whereId(1)->first()->link_id
+        'link_id' => config('var.link_id')
     ]
 ]);
 $permissions = json_decode($res->getBody());
