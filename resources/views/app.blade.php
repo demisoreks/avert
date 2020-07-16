@@ -291,6 +291,24 @@ use GuzzleHttp\Client;
                                 </div>
                             </div>
                         </div>
+                        <div class="card">
+                            <div class="card-header bg-white" id="heading-menu3" style="padding: 0;">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-menu3" aria-expanded="true" aria-controls="collapse-menu3">
+                                        <strong>Misc</strong>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapse-menu3" class="collapse @if (isset($open_menu) && $open_menu == 'misc') show @endif" aria-labelledby="heading-menu3" data-parent="#accordion-menu">
+                                <div class="card-body">
+                                    <nav class="nav flex-column">
+                                        @if (count(array_intersect($permissions, ['ControlRoom'])) != 0)
+                                        <a class="nav-link" href="{{ route('guards.temp') }}">Guard Data (Temp)</a>
+                                        @endif
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
                         @endif
                     </div>
                 </div>

@@ -17,6 +17,10 @@ Route::get('/', [
     'as' => 'welcome', 'uses' => 'WelcomeController@index'
 ])->middleware(['auth.user', 'auth.access:'.$link_id.',Admin,ControlRoom']);
 
+Route::get('guards/temp', [
+    'as' => 'guards.temp', 'uses' => 'MiscController@guards'
+]);
+
 Route::post('panic_requests/{panic_request}/treat', [
     'as' => 'panic_requests.treat', 'uses' => 'PanicRequestsController@treat'
 ])->middleware(['auth.user', 'auth.access:'.$link_id.',ControlRoom']);
