@@ -17,7 +17,7 @@ Route::get('/', [
     'as' => 'welcome', 'uses' => 'WelcomeController@index'
 ])->middleware(['auth.user', 'auth.access:'.$link_id.',Admin,ControlRoom']);
 
-Route::get('guards/temp', [
+Route::match(['GET', 'POST'], 'guards/temp', [
     'as' => 'guards.temp', 'uses' => 'MiscController@guards'
 ]);
 

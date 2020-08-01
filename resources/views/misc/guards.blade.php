@@ -1,6 +1,21 @@
 @extends('app', ['page_title' => 'Guard Data (Temp)', 'open_menu' => 'misc'])
 
 @section('content')
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-12">
+        {!! Form::model($search_param, ['route' => ['guards.temp'], 'class' => 'form-inline']) !!}
+            <div class="col-auto">
+                {!! Form::label('region', 'Region', []) !!}
+            </div>
+            <div class="col-auto">
+                {!! Form::select('region', DB::table('tmp_guards')->distinct('region')->orderBy('region')->pluck('region', 'region'), $value = null, ['class' => 'form-control', 'required' => true]) !!}
+            </div>
+            <div class="col-auto">
+                {!! Form::submit('Search', ['class' => 'btn btn-primary btn-sm']) !!}
+            </div>
+        {!! Form::close() !!}
+    </div>
+</div>
 <div class="row">
     <div class="col-12">
         <table id="myTable1" class="display-1 table table-condensed table-hover table-striped responsive" width="100%">
